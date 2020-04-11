@@ -11,6 +11,9 @@ class App extends Component {
     error: null,
     isLoaded: false,
     total: [],
+    totalInt: [],
+    totalCFR: null,
+    countriesInteger: []
   };
 
   componentDidMount() {
@@ -52,10 +55,12 @@ class App extends Component {
       })
 
       .then(([res1, res2, res3]) => {
-        console.log(res3.list)
         this.setState({
           countries: this.createCountry(res2.countries_stat, res3.list),
           total: this.updateTotal(res1),
+          totalInt: this.toInteger(res1),
+          totalCFR: this.makeGlobalCFR(res2.countries_stat, res3.list),
+          countriesInteger: this.makeCountriesInteger(res2.countries_stat, res3.list)
         });
       });
   }
@@ -101,8 +106,8 @@ class App extends Component {
             us: true,
             country: state.state,
             recovered: obj.recovered,
-            deaths: obj.deaths,
-            confirmed: obj.confirmed,
+            deaths: (obj.deaths).toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ","),
+            confirmed: (obj.confirmed).toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ","),
             center: { lat: state.latitude, lng: state.longitude },
           });
         }
@@ -111,22 +116,101 @@ class App extends Component {
     return countries;
   }
 
-  updateTotal(totalArray) {
-    var newTotalCases = parseInt(totalArray["total_cases"].replace(/,/g, ""))
-    var newTotalDeaths = parseInt(totalArray["total_deaths"].replace(/,/g, ""))
-    var newTotalRecoveries = parseInt(totalArray["total_recovered"].replace(/,/g, ""))
-    var activeCases = newTotalCases - newTotalDeaths - newTotalRecoveries
 
-    totalArray["active_cases"] = activeCases.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")
+  updateTotal(totalArray) {
+    let total = this.toInteger(totalArray);
+    var activeCases = total[0] - total[1] - total[2];
+
+    totalArray["active_cases"] = activeCases
+      .toString()
+      .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
     return totalArray;
   }
 
+  makeGlobalCFR(countries, states) {
+    let cfrPerCountry = []
+    countries.forEach(country => {
+      cfrPerCountry.push(
+        (parseInt(country.deaths.replace(/,/g, "")) / parseInt(country.cases.replace(/,/g, ""))) * 100
+      )
+    })
+
+    states.forEach(state => {
+      cfrPerCountry.push(
+        (state.deaths / state.confirmed * 100)
+      )
+    })
+    const reducer = (accumulator, currentValue) => accumulator + currentValue
+    let avCfr = cfrPerCountry.reduce(reducer) / cfrPerCountry.length
+
+    return avCfr
+  }
+
+  toInteger(totalArray) {
+    var newTotalCases = parseInt(totalArray["total_cases"].replace(/,/g, ""));
+    var newTotalDeaths = parseInt(totalArray["total_deaths"].replace(/,/g, ""));
+    var newTotalRecoveries = parseInt(
+      totalArray["total_recovered"].replace(/,/g, "")
+    );
+    return [newTotalCases, newTotalDeaths, newTotalRecoveries];
+  }
+
+  makeCountriesInteger(countries, states) {
+    const countriesInteger = [];
+
+    ref_country_codes.ref_country_codes.forEach((one) => {
+      countries.forEach((two) => {
+        if (one.country === two.country_name) {
+          countriesInteger.push({
+            country: two.country_name,
+            recovered: parseInt(two.total_recovered.replace(/,/g, "")),
+            deaths: parseInt(two.deaths.replace(/,/g, "")),
+            confirmed: parseInt(two.cases.replace(/,/g, "")),
+            center: { lat: one.latitude, lng: one.longitude },
+            newCases: parseInt(two.new_cases.replace(/,/g, "")),
+            newDeaths: parseInt(two.new_deaths.replace(/,/g, "")),
+            activeCases: parseInt(two.active_cases.replace(/,/g, "")),
+            criticalCases: parseInt(two.serious_critical.replace(/,/g, "")),
+            perOneMillion: parseInt(two.total_cases_per_1m_population.replace(/,/g, "")),
+
+          })
+        }
+      })
+    })
+
+
+    us_codes.us_codes.forEach((state) => {
+      states.forEach((obj) => {
+        if (obj.state === "Georgia") {
+          obj.state = "Georgia, US";
+        }
+        if (obj.state === state.state) {
+          countriesInteger.push({
+            us: true,
+            country: state.state,
+            recovered: obj.recovered,
+            deaths: (obj.deaths),
+            confirmed: (obj.confirmed),
+            center: { lat: state.latitude, lng: state.longitude },
+          });
+        }
+      })
+    });
+    return countriesInteger;
+  }
+
   render() {
+    console.log("hello", this.state.countriesInteger)
     return (
-      <div className="App">
-        <Header total={this.state.total} countries={this.state.countries} />
+      <div className="App" >
+        <Header total={this.state.total} countries={this.state.countries} globalCFR={this.state.totalCFR} />
         <div className="Container">
-          <MapContainer countries={this.state.countries} />
+          <MapContainer
+            countries={this.state.countries}
+            total={this.state.totalInt}
+            globalCFR={this.state.totalCFR}
+            integerCountries={this.state.countriesInteger}
+          />
         </div>
       </div>
     );
@@ -134,7 +218,3 @@ class App extends Component {
 }
 
 export default App;
-
-
-// 54: {countrycode: "US", country: "United States of America", state: "Guam", latitude: "13.4443", longitude: "144.7937", …}
-// 55: {countrycode: "US", country: "United States of America", state: "Puerto Rico", latitude: "18.2208", longitude: "-66.5901", …}

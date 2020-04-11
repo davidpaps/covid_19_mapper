@@ -661,8 +661,8 @@
       "alpha2": "GL",
       "alpha3": "GRL",
       "numeric": 304,
-      "latitude": 72,
-      "longitude": -40
+      "latitude": 65,
+      "longitude": -45
     },
     {
       "country": "Grenada",
@@ -1829,8 +1829,8 @@
       "alpha2": "US",
       "alpha3": "USA",
       "numeric": 840,
-      "latitude": 35.222,
-      "longitude": -101.8313
+      "latitude": 45.301456,
+      "longitude": -104.086992
     },
     {
       "country": "United States Minor Outlying Islands",

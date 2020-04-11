@@ -1,126 +1,101 @@
 import React, { Component } from "react";
 import {
-  Map,
-  GoogleApiWrapper,
-  Marker,
-  InfoWindow,
-} from "google-maps-react";
+  withGoogleMap,
+  GoogleMap,
+  Circle
+} from "react-google-maps";
 import styles from "./../assets/mapStyle.json";
+import MapInfo from "./mapinfo";
+import Legend from './legend'
 
-export class MapContainer extends Component {
+class MapContainer extends Component {
   constructor(props) {
     super(props);
+    this.countryElement = React.createRef();
+
     this.state = {
       center: { lat: 40.4929, lng: 15.5553 },
       isMarkerShowing: true,
-      activeMarker: null,
       selectedPlace: {},
       activeMarker: {},
     };
   }
 
-  // onMapClicked = (mapProps, map, event) => {
-  // console.log("mapProps", mapProps);
-  // console.log("map", map);
-  // console.log("event", event);
-  // if (data.marginBounds.nw.lat >= 85 || data.marginBounds.se.lat <= -85) {
-  //   this.setState({
-  //     center: [this.state.center[0] + 0.00100, this.state.center[1]],
-  //   });
-  // }
-  // this.setState({
-  //   isMarkerShowing: false,
-  //   activeMarker: ""
-  // });
-  // };
-
-  onMarkerClicked = (props, marker, event) => {
-    this.setState({
-      isMarkerShowing: true,
-      selectedPlace: props,
-      activeMarker: marker,
-    });
+  onMarkerClicked = (marker) => {
+    this.countryElement.current.changeCountry(marker)
   };
 
-  generateMarkers = () => {
-    return this.props.countries.map((country, i) => {
-      return (
-        <Marker
-          id={country.country}
-          key={i}
-          position={country.center}
-          onClick={this.onMarkerClicked}
-          icon={
-            country.us
-              ? "http://maps.google.com/mapfiles/ms/icons/blue.png"
-              : "http://maps.google.com/mapfiles/ms/icons/purple.png"
-          }
-        ></Marker>
-      );
-    });
-  };
 
   render() {
-    return (
-      <div className="Map">
-        <Map
-          google={this.props.google}
-          styles={styles}
-          initialCenter={this.state.center}
-          zoom={2.2}
-          minZoom={2.2}
-          maxZoom={12}
-          disableDefaultUI={true}
-          zoomControl={true}
-        >
-          <InfoWindow
-            marker={this.state.activeMarker}
-            visible={this.state.isMarkerShowing}
-          >
-            {this.props.countries.map((country) => {
-              if (country.country === this.state.selectedPlace.id) {
-                if (country.us) {
-                  return (
-                    <div>
-                      <h6>{country.country}</h6>
-                      Total Cases: {country.confirmed}
-                      <br></br>
-                      Total Deaths: {country.deaths}
-                    </div>
-                  );
-                } else {
-                  return (
-                    <div>
-                      <h6>{country.country}</h6>
-                      Total Cases: {country.confirmed}
-                      <br></br>
-                      Total Deaths: {country.deaths}
-                      <br></br>
-                      Total Recoveries: {country.recovered}
-                      <br></br>
-                      Active Cases: {country.activeCases}
-                      <br></br>
-                      Critical Cases: {country.criticalCases}
-                      <br></br>
-                      New Cases: {country.newCases}
-                      <br></br>
-                      New Deaths: {country.newDeaths}
-                      <br></br>
-                      Cases per Million: {country.perOneMillion}
-                    </div>
-                  );
+    const GoogleMapExample = withGoogleMap((props) => (
+      <GoogleMap
+        ref={this.map}
+        defaultCenter={this.state.center}
+        defaultZoom={2.25}
+        options={{
+          disableDefaultUI: true,
+          styles: styles,
+          minZoom: 2,
+          maxZoom: 10,
+          zoomControl: true,
+        }}
+        onIdle={this.handleIdle}
+      >
+        {console.log(this.props)}
+        {this.props.integerCountries.map((country, i) => (
+          <Circle
+            ref={this.circle}
+            defaultCenter={country.center}
+            radius={
+
+              country.country === "USA"
+                ? 220000
+                : (country.confirmed / this.props.total[0]) * 100 <= 1.5 || NaN
+                  ? 60000
+                  : 160000
+            }
+            onClick={() => this.onMarkerClicked(country.country)}
+            options={
+              (country.deaths / country.confirmed) * 100 <= this.props.globalCFR
+                ? {
+                  fillColor: "#FFC108",
+                  fillOpacity: 0.5,
+                  strokeOpacity: 0.8,
+                  strokeWeight: 0
                 }
-              }
-            })}
-          </InfoWindow>
-          {this.generateMarkers()}
-        </Map>
-      </div>
+                : {
+                  fillColor: "#DC3645",
+                  fillOpacity: 0.5,
+                  strokeOpacity: 0.8,
+                  strokeWeight: 0
+                }
+            }
+          >{typeof country.confirmed === "string" ? console.log(country.country) : console.log("")}</Circle>
+        ))
+        }
+      </GoogleMap>
+    ));
+
+    return (
+      <div>
+        <div>
+          <GoogleMapExample
+            containerElement={<div id="container" />}
+            mapElement={<div id="map" />}
+          />
+        </div>
+        <div id="legend">
+          <Legend />
+        </div>
+        <div id="mapinfo">
+          <MapInfo
+            ref={this.countryElement}
+            countriesArray={this.props.countries}
+          />
+        </div>
+      </div >
     );
-    // };
   }
 }
 
-export default GoogleApiWrapper({
-  apiKey: process.env.REACT_APP_GOOGLE_API,
-})(MapContainer);
+export default MapContainer;

@@ -1,0 +1,13 @@
+dist: trusty
+language: node_js
+node_js:
+- stable
+before_script:
+- npm install
+script:
+- npm test
+deploy:
+  provider: heroku
+  app: covid-mapper
+  api_key:
+    secure: IZd/jxjo7QfVE4UICTuPmtzo4QD915VbXqo2uv6GIlMf2Sz5HVXrIZ5/h7e8z+fKUX0YE5lJQVcQLqIuOM9bJd058zrR9RYYedR7ywytk3meiDUn7CEhud77gOW0wpxL7gyLPfGbRRuMlNLvc4kp+DdoBrMUEdPOlwiJO98MtiUptBpvcEEnve0H2MNDxsDzvU/PL0Ob0GSrf+dG9hvzSqHNO5TM9q2qM+JVPlTAX89v0LCQ7ODdN5o5+au10C3yHsKf6P1hnvC+6yD5FdklwnjsbuQ+/hXZSaN4Tsy61BASWPyViJniHbaUkYMtYbonQS6xcm2cFZZElQ8rbARUXkOnwNq+sTPQuRd288YcvbnKDjIiai2LrbWidbCEAhlFhi3tknh7aPAOix5mDFXt9ms/a6ZSErNgTNpYWXzhMT/GDT8qlYBSTG8Pzo6G1baiRWtzGsNqoJD2c+eEmEidJcAN4AOIedawXQ0a/Ym9rNXrek2+xgdgwgV2NpsV9eIFW/tD2fKlgtXHa2nORAQqzmif320SFrL2cfoe5Ts6QRTH5fcYxuE+cKk6nFbcyme48gbYLWNSJTuw8v4EXm4U6FK8lto25nQK7430yVS0BzHqPQS7/y7YqWLIT0khWfkgLsR2p5Tu7KEc5xV4BmLEG0PDRp5y1vCYX7uX1FkbOhY=

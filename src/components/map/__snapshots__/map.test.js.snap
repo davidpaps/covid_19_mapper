@@ -1,13 +1,256 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Map from GoogleMap renders correctly the map compomenet 1`] = `
+exports[`renders correctly 1`] = `
 <div>
-  Loading...
-</div>
-`;
-
-exports[`Map from GoogleMap renders correctly the map component 1`] = `
-<div>
-  Loading...
+  <div>
+    <div
+      id="container"
+    >
+      <div
+        id="map"
+      />
+      <div />
+    </div>
+  </div>
+  <div
+    id="legend"
+  >
+    <div>
+      <div
+        id="key"
+      >
+        <strong>
+          Key
+        </strong>
+        <br />
+        <button
+          className="btn btn-outline- btn-sm"
+          disabled={false}
+          onBlur={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          type="button"
+        >
+          <div
+            id="colour"
+          >
+            <svg
+              height="30"
+              styles=" fill:#000000;"
+              viewBox="0 0 172 172"
+              width="30"
+              x="0px"
+              xmlns="http://www.w3.org/2000/svg"
+              y="0px"
+            >
+              <g
+                fill="none"
+                fill-rule="nonzero"
+              >
+                <path
+                  d="M0,172v-172h172v172z"
+                  fill="none"
+                />
+                <g
+                  fill="#ffc108"
+                >
+                  <path
+                    d="M86,157.66667c-39.41667,0 -71.66667,-32.25 -71.66667,-71.66667c0,-39.41667 32.25,-71.66667 71.66667,-71.66667c39.41667,0 71.66667,32.25 71.66667,71.66667c0,39.41667 -32.25,71.66667 -71.66667,71.66667z"
+                  />
+                </g>
+              </g>
+            </svg>
+          </div>
+        </button>
+        <br />
+        <button
+          className="btn btn-outline- btn-sm"
+          disabled={false}
+          onBlur={[Function]}
+          onFocus={[Function]}
+          onMouseOut={[Function]}
+          onMouseOver={[Function]}
+          type="button"
+        >
+          <div
+            id="colour"
+          >
+            <svg
+              height="30"
+              styles=" fill:#000000;"
+              viewBox="0 0 172 172"
+              width="30"
+              x="0px"
+              xmlns="http://www.w3.org/2000/svg"
+              y="0px"
+            >
+              <g
+                fill="none"
+                fill-rule="nonzero"
+              >
+                <path
+                  d="M0,172v-172h172v172z"
+                  fill="none"
+                />
+                <g
+                  fill="#dc3645"
+                >
+                  <path
+                    d="M86,157.66667c-39.41667,0 -71.66667,-32.25 -71.66667,-71.66667c0,-39.41667 32.25,-71.66667 71.66667,-71.66667c39.41667,0 71.66667,32.25 71.66667,71.66667c0,39.41667 -32.25,71.66667 -71.66667,71.66667z"
+                  />
+                </g>
+              </g>
+            </svg>
+          </div>
+        </button>
+      </div>
+      <button
+        className="btn btn-outline- btn-sm"
+        disabled={false}
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseOut={[Function]}
+        onMouseOver={[Function]}
+        type="button"
+      >
+        <div
+          id="size"
+        >
+          <svg
+            height="15"
+            styles=" fill:#000000;"
+            viewBox="0 0 172 172"
+            width="15"
+            x="0px"
+            xmlns="http://www.w3.org/2000/svg"
+            y="0px"
+          >
+            <g
+              transform="translate(4.988,4.988) scale(0.942,0.942)"
+            >
+              <g
+                fill="none"
+                fill-rule="nonzero"
+                s={true}
+              >
+                <g
+                  fill="#ffffff"
+                  stroke="#cccccc"
+                  stroke-linejoin="round"
+                  stroke-width="10"
+                >
+                  <path
+                    d="M86,157.66667c-39.41667,0 -71.66667,-32.25 -71.66667,-71.66667c0,-39.41667 32.25,-71.66667 71.66667,-71.66667c39.41667,0 71.66667,32.25 71.66667,71.66667c0,39.41667 -32.25,71.66667 -71.66667,71.66667zM86,28.66667c-31.53333,0 -57.33333,25.8 -57.33333,57.33333c0,31.53333 25.8,57.33333 57.33333,57.33333c31.53333,0 57.33333,-25.8 57.33333,-57.33333c0,-31.53333 -25.8,-57.33333 -57.33333,-57.33333z"
+                  />
+                </g>
+                <path
+                  d="M0,172v-172h172v172z"
+                  fill="none"
+                  stroke="none"
+                  stroke-linejoin="miter"
+                  stroke-width="1"
+                />
+                <g
+                  fill="#ffffff"
+                  stroke="none"
+                  stroke-linejoin="miter"
+                  stroke-width="1"
+                >
+                  <path
+                    d="M86,157.66667c-39.41667,0 -71.66667,-32.25 -71.66667,-71.66667c0,-39.41667 32.25,-71.66667 71.66667,-71.66667c39.41667,0 71.66667,32.25 71.66667,71.66667c0,39.41667 -32.25,71.66667 -71.66667,71.66667zM86,28.66667c-31.53333,0 -57.33333,25.8 -57.33333,57.33333c0,31.53333 25.8,57.33333 57.33333,57.33333c31.53333,0 57.33333,-25.8 57.33333,-57.33333c0,-31.53333 -25.8,-57.33333 -57.33333,-57.33333z"
+                  />
+                </g>
+                <path
+                  d=""
+                  fill="none"
+                  stroke="none"
+                  stroke-linejoin="miter"
+                  stroke-width="1"
+                />
+              </g>
+            </g>
+          </svg>
+        </div>
+      </button>
+      <br />
+      <button
+        className="btn btn-outline- btn-sm"
+        disabled={false}
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseOut={[Function]}
+        onMouseOver={[Function]}
+        type="button"
+      >
+        <div
+          id="size"
+        >
+          <svg
+            height="30"
+            styles=" fill:#000000;"
+            viewBox="0 0 172 172"
+            width="30"
+            x="0px"
+            xmlns="http://www.w3.org/2000/svg"
+            y="0px"
+          >
+            <g
+              transform="translate(4.988,4.988) scale(0.942,0.942)"
+            >
+              <g
+                fill="none"
+                fill-rule="nonzero"
+                s={true}
+              >
+                <g
+                  fill="#ffffff"
+                  stroke="#cccccc"
+                  stroke-linejoin="round"
+                  stroke-width="10"
+                >
+                  <path
+                    d="M86,157.66667c-39.41667,0 -71.66667,-32.25 -71.66667,-71.66667c0,-39.41667 32.25,-71.66667 71.66667,-71.66667c39.41667,0 71.66667,32.25 71.66667,71.66667c0,39.41667 -32.25,71.66667 -71.66667,71.66667zM86,28.66667c-31.53333,0 -57.33333,25.8 -57.33333,57.33333c0,31.53333 25.8,57.33333 57.33333,57.33333c31.53333,0 57.33333,-25.8 57.33333,-57.33333c0,-31.53333 -25.8,-57.33333 -57.33333,-57.33333z"
+                  />
+                </g>
+                <path
+                  d="M0,172v-172h172v172z"
+                  fill="none"
+                  stroke="none"
+                  stroke-linejoin="miter"
+                  stroke-width="1"
+                />
+                <g
+                  fill="#ffffff"
+                  stroke="none"
+                  stroke-linejoin="miter"
+                  stroke-width="1"
+                >
+                  <path
+                    d="M86,157.66667c-39.41667,0 -71.66667,-32.25 -71.66667,-71.66667c0,-39.41667 32.25,-71.66667 71.66667,-71.66667c39.41667,0 71.66667,32.25 71.66667,71.66667c0,39.41667 -32.25,71.66667 -71.66667,71.66667zM86,28.66667c-31.53333,0 -57.33333,25.8 -57.33333,57.33333c0,31.53333 25.8,57.33333 57.33333,57.33333c31.53333,0 57.33333,-25.8 57.33333,-57.33333c0,-31.53333 -25.8,-57.33333 -57.33333,-57.33333z"
+                  />
+                </g>
+                <path
+                  d=""
+                  fill="none"
+                  stroke="none"
+                  stroke-linejoin="miter"
+                  stroke-width="1"
+                />
+              </g>
+            </g>
+          </svg>
+        </div>
+      </button>
+    </div>
+  </div>
+  <div
+    id="mapinfo"
+  >
+    <div
+      className="bg-warning text-white"
+      id="card"
+    />
+  </div>
 </div>
 `;

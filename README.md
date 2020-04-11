@@ -20,8 +20,25 @@ Once the dependencies are installed, type in the command line:
 npm start
 ```
 
-This will start the local server which can be accessed at [_localhst:3000_](http://localhost:3000/)
+This will start the local server which can be accessed at [_localhost:3000_](http://localhost:3000/)
 
 The project is also hosted live on [_Heroku_](https://covid-mapper.herokuapp.com/)
 
 ---
+
+## How to Run Tests
+
+Jest and Enzyme
+
+
+```
+npm test
+```
+
+```
+npm test -- --coverage --watchAll
+```
+
+```
+npm -- --updateSnapshot
+```

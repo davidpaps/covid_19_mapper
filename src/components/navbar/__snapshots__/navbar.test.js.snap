@@ -11,10 +11,11 @@ exports[`Navbar Component render correctly Header component 1`] = `
       alt=""
       className="d-inline-block align-top"
       height="30"
-      src="https://cdn3.iconfinder.com/data/icons/science-116/64/virus-lab-scientist-biology-cell-medical-512.png"
+      src="https://cdn3.iconfinder.com/data/icons/science-116/64/virus-lab-scientist-biology-cell-medical-512.png?v=2"
       width="30"
     />
-     Covid-19
+     
+    Covid-19
   </span>
   <div
     className="dropdown"
@@ -29,7 +30,11 @@ exports[`Navbar Component render correctly Header component 1`] = `
       onClick={[Function]}
       type="button"
     >
-      Global Cases: undefined
+      <span
+        aria-hidden="true"
+        className="spinner-grow spinner-grow-sm"
+        role="status"
+      />
     </button>
   </div>
   <div
@@ -49,7 +54,11 @@ exports[`Navbar Component render correctly Header component 1`] = `
         onClick={[Function]}
         type="button"
       >
-        Global Recoveries: undefined
+        <span
+          aria-hidden="true"
+          className="spinner-grow spinner-grow-sm"
+          role="status"
+        />
       </button>
     </div>
   </div>
@@ -70,7 +79,11 @@ exports[`Navbar Component render correctly Header component 1`] = `
         onClick={[Function]}
         type="button"
       >
-        Global Deaths: undefined
+        <span
+          aria-hidden="true"
+          className="spinner-grow spinner-grow-sm"
+          role="status"
+        />
       </button>
     </div>
   </div>
@@ -91,7 +104,11 @@ exports[`Navbar Component render correctly Header component 1`] = `
         onClick={[Function]}
         type="button"
       >
-        Last Updated 
+        <span
+          aria-hidden="true"
+          className="spinner-grow spinner-grow-sm"
+          role="status"
+        />
       </button>
     </div>
   </div>

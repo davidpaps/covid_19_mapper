@@ -74,6 +74,9 @@ class App extends Component {
           usa.push(two);
         }
         if (one.country === two.country_name) {
+          let intTotalConfirmed = parseInt(two.cases.replace(/,/g, ""))
+          let intTotalDeaths = parseInt(two.deaths.replace(/,/g, ""))
+          let cfr = intTotalDeaths / intTotalConfirmed * 100
           countries.push({
             country: two.country_name,
             recovered: two.total_recovered,
@@ -85,6 +88,7 @@ class App extends Component {
             activeCases: two.active_cases,
             criticalCases: two.serious_critical,
             perOneMillion: two.total_cases_per_1m_population,
+            cfr: cfr.toFixed(2)
           });
         }
       })
@@ -98,6 +102,7 @@ class App extends Component {
   updateUS(states, countries) {
     us_codes.us_codes.forEach((state) =>
       states.forEach((obj) => {
+
         if (obj.state === "Georgia") {
           obj.state = "Georgia, US";
         }
@@ -109,6 +114,7 @@ class App extends Component {
             deaths: (obj.deaths).toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ","),
             confirmed: (obj.confirmed).toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ","),
             center: { lat: state.latitude, lng: state.longitude },
+            cfr: (obj.deaths / obj.confirmed * 100).toFixed(2)
           });
         }
       })
@@ -131,7 +137,8 @@ class App extends Component {
     let cfrPerCountry = []
     countries.forEach(country => {
       cfrPerCountry.push(
-        (parseInt(country.deaths.replace(/,/g, "")) / parseInt(country.cases.replace(/,/g, ""))) * 100
+        parseInt(country.deaths.replace(/,/g, "")) / parseInt(country.cases.replace(/,/g, "")) * 100
+
       )
     })
 
@@ -143,7 +150,7 @@ class App extends Component {
     const reducer = (accumulator, currentValue) => accumulator + currentValue
     let avCfr = cfrPerCountry.reduce(reducer) / cfrPerCountry.length
 
-    return avCfr
+    return avCfr.toFixed(2)
   }
 
   toInteger(totalArray) {
@@ -161,6 +168,9 @@ class App extends Component {
     ref_country_codes.ref_country_codes.forEach((one) => {
       countries.forEach((two) => {
         if (one.country === two.country_name) {
+          let intTotalConfirmed = parseInt(two.cases.replace(/,/g, ""))
+          let intTotalDeaths = parseInt(two.deaths.replace(/,/g, ""))
+          let cfr = intTotalDeaths / intTotalConfirmed * 100
           countriesInteger.push({
             country: two.country_name,
             recovered: parseInt(two.total_recovered.replace(/,/g, "")),
@@ -172,6 +182,7 @@ class App extends Component {
             activeCases: parseInt(two.active_cases.replace(/,/g, "")),
             criticalCases: parseInt(two.serious_critical.replace(/,/g, "")),
             perOneMillion: parseInt(two.total_cases_per_1m_population.replace(/,/g, "")),
+            cfr: cfr,
 
           })
         }
@@ -192,6 +203,7 @@ class App extends Component {
             deaths: (obj.deaths),
             confirmed: (obj.confirmed),
             center: { lat: state.latitude, lng: state.longitude },
+            cfr: (obj.deaths / obj.confirmed * 100).toFixed(2)
           });
         }
       })
@@ -200,7 +212,7 @@ class App extends Component {
   }
 
   render() {
-    console.log("hello", this.state.countriesInteger)
+    console.log(this.state.totalCFR)
     return (
       <div className="App" >
         <Header total={this.state.total} countries={this.state.countries} globalCFR={this.state.totalCFR} />

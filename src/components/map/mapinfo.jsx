@@ -16,43 +16,51 @@ class MapInfo extends Component {
 
   render() {
     return (
-      <div className="bg-warning text-white" id="card">
-        {this.props.countriesArray.map((country) => {
+      <div id="card">
+        {this.props.countriesArray.map((country, i) => {
           if (country.country === this.state.marker) {
             if (country.us) {
               return (
-                <div id="mapinfo">
+                <div id="mapinfo" key={i}>
                   <div id="infoUS">
                     <h4>{country.country}</h4>
                   </div>
                   <br></br>
-                  <div id="infoUS">
+                  <div id="infoUSCases">
                     <strong>Total Cases</strong>
                     <br></br> {country.confirmed}
                   </div>
-                  <div id="infoUS">
+                  <div id="infoUSDeaths">
                     <strong>Total Deaths</strong>
                     <br></br> {country.deaths}
                   </div>
+                  {(country.cfr <= this.props.globalCFR) ?
+                    <div id="infoUSYellow" >
+                      <strong>C.F.R</strong>
+                      <br></br> {country.cfr}%
+                  </div> : <div id="infoUSOrange" >
+                      <strong>C.F.R</strong>
+                      <br></br> {country.cfr}%
+                  </div>}
                 </div>
               );
             } else {
               return (
-                <div id="mapinfo">
+                <div id="mapinfo" key={i}>
                   <div id="info">
                     <h4>{country.country}</h4>
                   </div>
                   <br></br>
-                  <div id="info">
+                  <div id="infoCases">
                     <strong>Total Cases</strong>
                     <br></br>
                     {country.confirmed}
                   </div>
-                  <div id="info">
+                  <div id="infoDeaths">
                     <strong>Total Deaths</strong>
                     <br></br> {country.deaths}
                   </div>
-                  <div id="info">
+                  <div id="infoRecoveries">
                     <strong>Total Recoveries</strong>
                     <br></br> {country.recovered}
                   </div>
@@ -72,12 +80,20 @@ class MapInfo extends Component {
                     <strong>Cases per Millon</strong>
                     <br></br> {country.perOneMillion}
                   </div>
+                  {(country.cfr <= this.props.globalCFR) ?
+                    <div id="infoYellow" >
+                      <strong>C.F.R</strong>
+                      <br></br> {country.cfr}%
+                  </div> : <div id="infoOrange" >
+                      <strong>C.F.R</strong>
+                      <br></br> {country.cfr}%
+                  </div>}
                 </div>
               );
             }
           }
         })}
-      </div>
+      </div >
     );
   }
 }

@@ -12,6 +12,13 @@
   font-size: 14px;
   color: grey;
   font-weight: bolder;
+  display: flex;
+  flex-direction: row;
+  margin: 0px;
+}
+
+#info-icon {
+  margin-right: 5px;
 }
 
 #map {
@@ -39,6 +46,7 @@
   width: 100%;
   z-index: 1;
   bottom: 0px;
+  left: 0px;
   fill: none;
 }
 
@@ -46,6 +54,55 @@
   width: 15%;
 }
 
+#infoCases {
+  color: #18A2B8;
+  width: 15%
+}
+
+#infoDeaths {
+  color: rgb(220,54,69);
+  width: 15%
+}
+
+#infoRecoveries {
+  color: rgb(40,167,69);
+  width: 15%
+}
+
 #infoUS {
+  width: 40%
+}
+
+#infoUSCases {
+  width: 40%;
+  color: #18A2B8;
+}
+
+#infoUSDeaths {
+  width: 40%;
+  color: rgb(220,54,69);
+}
+
+#card {
+color: white;
+}
+
+#infoYellow {
+  color: #FBBD08;
+  width: 15%
+}
+
+#infoOrange {
+  color: #FB5945;
+  width: 15%;
+}
+
+#infoUSYellow {
+  color: #FBBD08;
+  width: 40%
+}
+
+#infoUSOrange {
+  color: #FB5945;
   width: 40%;
 }

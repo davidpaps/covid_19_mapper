@@ -24,7 +24,7 @@ exports[`Navbar Component render correctly Header component 1`] = `
     <button
       aria-expanded={false}
       aria-haspopup={true}
-      className="dropdown-toggle btn btn-outline-warning"
+      className="dropdown-toggle btn btn-outline-info"
       disabled={false}
       id="last_updated"
       onClick={[Function]}
@@ -98,7 +98,28 @@ exports[`Navbar Component render correctly Header component 1`] = `
       <button
         aria-expanded={false}
         aria-haspopup={true}
-        className="dropdown-toggle btn btn-outline-info"
+        className="dropdown-toggle btn btn-outline-warning"
+        disabled={false}
+        id="dropdown-menu-align-right"
+        onClick={[Function]}
+        type="button"
+      >
+        Global C.F.R: 2.9587486%
+      </button>
+    </div>
+  </div>
+  <div
+    className="ml-auto navbar-nav"
+    onKeyDown={[Function]}
+  >
+    <div
+      className="dropdown"
+      onKeyDown={[Function]}
+    >
+      <button
+        aria-expanded={false}
+        aria-haspopup={true}
+        className="dropdown-toggle btn btn-outline-secondary"
         disabled={false}
         id="dropdown-menu-align-right"
         onClick={[Function]}

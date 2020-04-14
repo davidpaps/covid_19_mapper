@@ -41,36 +41,36 @@ class MapContainer extends Component {
         }}
         onIdle={this.handleIdle}
       >
-        {console.log(this.props)}
         {this.props.integerCountries.map((country, i) => (
           <Circle
             ref={this.circle}
+            key={i}
             defaultCenter={country.center}
             radius={
 
               country.country === "USA"
                 ? 220000
-                : (country.confirmed / this.props.total[0]) * 100 <= 1.5 || NaN
+                : (country.confirmed / this.props.total[0]) * 100 <= 1
                   ? 60000
                   : 160000
             }
             onClick={() => this.onMarkerClicked(country.country)}
             options={
-              (country.deaths / country.confirmed) * 100 <= this.props.globalCFR
+              country.cfr <= this.props.globalCFR
                 ? {
-                  fillColor: "#FFC108",
+                  fillColor: "#FBBD08",
                   fillOpacity: 0.5,
                   strokeOpacity: 0.8,
                   strokeWeight: 0
                 }
                 : {
-                  fillColor: "#DC3645",
+                  fillColor: "#FB5945",
                   fillOpacity: 0.5,
                   strokeOpacity: 0.8,
                   strokeWeight: 0
                 }
             }
-          >{typeof country.confirmed === "string" ? console.log(country.country) : console.log("")}</Circle>
+          ></Circle>
         ))
         }
       </GoogleMap>
@@ -91,6 +91,7 @@ class MapContainer extends Component {
           <MapInfo
             ref={this.countryElement}
             countriesArray={this.props.countries}
+            globalCFR={this.props.globalCFR}
           />
         </div>
       </div >

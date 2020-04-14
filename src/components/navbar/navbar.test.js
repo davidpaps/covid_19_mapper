@@ -8,8 +8,8 @@ describe("Navbar Component", () => {
   it('does not crash when loaded onto page', () => {
     shallow(<Header total={[]} />)
   })
-  it('render correctly Header component', () => {  
-    const TextInputComponent = renderer.create(<Header total={[]} />).toJSON();
+  it('render correctly Header component', () => {
+    const TextInputComponent = renderer.create(<Header total={[]} globalCFR={[2.9587486]} />).toJSON();
     expect(TextInputComponent).toMatchSnapshot();
   });
 })

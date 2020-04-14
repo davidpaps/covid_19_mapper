@@ -54,7 +54,7 @@ describe('createCountry', () => {
       latitude: "34.22333378",
       longitude: "-82.46170658",
       confirmed: 2049,
-      deaths: 44
+      deaths: 44,
     }
   ]
   it("creates the country array", () => {
@@ -69,7 +69,8 @@ describe('createCountry', () => {
         newDeaths: "63",
         activeCases: "311,218",
         criticalCases: "8,702",
-        perOneMillion: "1,024"
+        perOneMillion: "1,024",
+        cfr: "2.86"
       },
       {
         us: true,
@@ -77,7 +78,8 @@ describe('createCountry', () => {
         recovered: undefined,
         deaths: "44",
         confirmed: "2,049",
-        center: { lat: 33.8191, lng: -80.9066 }
+        center: { lat: 33.8191, lng: -80.9066 },
+        cfr: "2.15",
       }])
   })
 
@@ -121,7 +123,7 @@ describe("updateUS", () => {
         newDeaths: "63",
         activeCases: "311,218",
         criticalCases: "8,702",
-        perOneMillion: "1,024"
+        perOneMillion: "1,024",
       },
       {
         us: true,
@@ -129,7 +131,8 @@ describe("updateUS", () => {
         recovered: undefined,
         deaths: "211",
         confirmed: "6,647",
-        center: { lat: 32.9866, lng: -83.6487 }
+        center: { lat: 32.9866, lng: -83.6487 },
+        cfr: "3.17",
       }])
   })
 

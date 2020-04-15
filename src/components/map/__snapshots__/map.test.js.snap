@@ -88,10 +88,6 @@ exports[`renders correctly 1`] = `
               <g
                 fill="none"
                 fillRule="nonzero"
-                font-family="none"
-                font-size="none"
-                font-weight="none"
-                text-anchor="none"
               >
                 <path
                   d="M0,172v-172h172v172z"

@@ -4,168 +4,270 @@ exports[`App Component renders as expected, snapshot comparison 1`] = `
 <div
   className="App"
 >
-  <nav
-    className="navbar-dark bs-navbar-collapse navbar navbar-expand navbar-light fixed-top"
-  >
-    <span
-      className="navbar-brand"
-    >
-      <img
-        alt=""
-        className="d-inline-block align-top"
-        height="30"
-        src="https://cdn3.iconfinder.com/data/icons/science-116/64/virus-lab-scientist-biology-cell-medical-512.png?v=2"
-        width="30"
-      />
-       
-      Covid-19
-    </span>
-    <div
-      className="dropdown"
-      onKeyDown={[Function]}
-    >
-      <button
-        aria-expanded={false}
-        aria-haspopup={true}
-        className="dropdown-toggle btn btn-outline-info"
-        disabled={false}
-        id="last_updated"
-        onClick={[Function]}
-        type="button"
-      >
-        <span
-          aria-hidden="true"
-          className="spinner-grow spinner-grow-sm"
-          role="status"
-        />
-      </button>
-    </div>
-    <div
-      className="ml-auto navbar-nav"
-      onKeyDown={[Function]}
-    >
-      <div
-        className="dropdown"
-        onKeyDown={[Function]}
-      >
-        <button
-          aria-expanded={false}
-          aria-haspopup={true}
-          className="dropdown-toggle btn btn-outline-success"
-          disabled={false}
-          id="last_updated"
-          onClick={[Function]}
-          type="button"
-        >
-          <span
-            aria-hidden="true"
-            className="spinner-grow spinner-grow-sm"
-            role="status"
-          />
-        </button>
-      </div>
-    </div>
-    <div
-      className="ml-auto navbar-nav"
-      onKeyDown={[Function]}
-    >
-      <div
-        className="dropdown"
-        onKeyDown={[Function]}
-      >
-        <button
-          aria-expanded={false}
-          aria-haspopup={true}
-          className="dropdown-toggle btn btn-outline-danger"
-          disabled={false}
-          id="last_updated"
-          onClick={[Function]}
-          type="button"
-        >
-          <span
-            aria-hidden="true"
-            className="spinner-grow spinner-grow-sm"
-            role="status"
-          />
-        </button>
-      </div>
-    </div>
-    <div
-      className="ml-auto navbar-nav"
-      onKeyDown={[Function]}
-    >
-      <div
-        className="dropdown"
-        onKeyDown={[Function]}
-      >
-        <button
-          aria-expanded={false}
-          aria-haspopup={true}
-          className="dropdown-toggle btn btn-outline-warning"
-          disabled={false}
-          id="dropdown-menu-align-right"
-          onClick={[Function]}
-          type="button"
-        >
-          <span
-            aria-hidden="true"
-            className="spinner-grow spinner-grow-sm"
-            role="status"
-          />
-        </button>
-      </div>
-    </div>
-    <div
-      className="ml-auto navbar-nav"
-      onKeyDown={[Function]}
-    >
-      <div
-        className="dropdown"
-        onKeyDown={[Function]}
-      >
-        <button
-          aria-expanded={false}
-          aria-haspopup={true}
-          className="dropdown-toggle btn btn-outline-secondary"
-          disabled={false}
-          id="dropdown-menu-align-right"
-          onClick={[Function]}
-          type="button"
-        >
-          <span
-            aria-hidden="true"
-            className="spinner-grow spinner-grow-sm"
-            role="status"
-          />
-        </button>
-      </div>
-    </div>
-  </nav>
   <div
-    className="Container"
+    id="app"
   >
-    <div>
-      <div>
+    <nav
+      className="navbar-dark bs-navbar-collapse navbar navbar-expand navbar-light fixed-top"
+    >
+      <div
+        className="navbar-nav"
+        onKeyDown={[Function]}
+      >
         <div
-          id="container"
+          className="dropdown"
+          onKeyDown={[Function]}
         >
-          <div
-            id="map"
-          />
-          <div />
+          <button
+            aria-expanded={false}
+            aria-haspopup={true}
+            className="dropdown-toggle btn btn-outline-light"
+            disabled={false}
+            id="last_updated"
+            onClick={[Function]}
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+              className="spinner-grow spinner-grow-sm"
+              role="status"
+            />
+          </button>
         </div>
       </div>
       <div
-        id="legend"
+        className="ml-auto navbar-nav"
+        onKeyDown={[Function]}
       >
+        <div
+          className="dropdown"
+          onKeyDown={[Function]}
+        >
+          <button
+            aria-expanded={false}
+            aria-haspopup={true}
+            className="dropdown-toggle btn btn-outline-info"
+            disabled={false}
+            id="last_updated"
+            onClick={[Function]}
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+              className="spinner-grow spinner-grow-sm"
+              role="status"
+            />
+          </button>
+        </div>
+      </div>
+      <div
+        className="ml-auto navbar-nav"
+        onKeyDown={[Function]}
+      >
+        <div
+          className="dropdown"
+          onKeyDown={[Function]}
+        >
+          <button
+            aria-expanded={false}
+            aria-haspopup={true}
+            className="dropdown-toggle btn btn-outline-success"
+            disabled={false}
+            id="last_updated"
+            onClick={[Function]}
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+              className="spinner-grow spinner-grow-sm"
+              role="status"
+            />
+          </button>
+        </div>
+      </div>
+      <div
+        className="ml-auto navbar-nav"
+        onKeyDown={[Function]}
+      >
+        <div
+          className="dropdown"
+          onKeyDown={[Function]}
+        >
+          <button
+            aria-expanded={false}
+            aria-haspopup={true}
+            className="dropdown-toggle btn btn-outline-danger"
+            disabled={false}
+            id="last_updated"
+            onClick={[Function]}
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+              className="spinner-grow spinner-grow-sm"
+              role="status"
+            />
+          </button>
+        </div>
+      </div>
+      <div
+        className="ml-auto navbar-nav"
+        onKeyDown={[Function]}
+      >
+        <div
+          className="dropdown"
+          onKeyDown={[Function]}
+        >
+          <button
+            aria-expanded={false}
+            aria-haspopup={true}
+            className="dropdown-toggle btn btn-outline-warning"
+            disabled={false}
+            id="dropdown-menu-align-right"
+            onClick={[Function]}
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+              className="spinner-grow spinner-grow-sm"
+              role="status"
+            />
+          </button>
+        </div>
+      </div>
+      <div
+        className="ml-auto navbar-nav"
+        onKeyDown={[Function]}
+      >
+        <div
+          className="dropdown"
+          onKeyDown={[Function]}
+        >
+          <button
+            aria-expanded={false}
+            aria-haspopup={true}
+            className="dropdown-toggle btn btn-outline-secondary"
+            disabled={false}
+            id="dropdown-menu-align-right"
+            onClick={[Function]}
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+              className="spinner-grow spinner-grow-sm"
+              role="status"
+            />
+          </button>
+        </div>
+      </div>
+    </nav>
+    <div
+      className="Container"
+    >
+      <div>
         <div>
           <div
-            id="key"
+            id="container"
           >
-            <strong>
-              Key
-            </strong>
-            <br />
+            <div
+              id="map"
+            />
+            <div />
+          </div>
+        </div>
+        <div
+          id="legend"
+        >
+          <div>
+            <div
+              id="key"
+            >
+              <strong>
+                Key
+              </strong>
+              <br />
+              <button
+                className="btn btn-outline- btn-sm"
+                disabled={false}
+                onBlur={[Function]}
+                onFocus={[Function]}
+                onMouseOut={[Function]}
+                onMouseOver={[Function]}
+                type="button"
+              >
+                <div
+                  id="colour"
+                >
+                  <svg
+                    height="30"
+                    styles=" fill:#000000;"
+                    viewBox="0 0 172 172"
+                    width="30"
+                    x="0px"
+                    xmlns="http://www.w3.org/2000/svg"
+                    y="0px"
+                  >
+                    <g
+                      fill="none"
+                      fillRule="nonzero"
+                    >
+                      <path
+                        d="M0,172v-172h172v172z"
+                        fill="none"
+                      />
+                      <g
+                        fill="#ffc108"
+                      >
+                        <path
+                          d="M86,157.66667c-39.41667,0 -71.66667,-32.25 -71.66667,-71.66667c0,-39.41667 32.25,-71.66667 71.66667,-71.66667c39.41667,0 71.66667,32.25 71.66667,71.66667c0,39.41667 -32.25,71.66667 -71.66667,71.66667z"
+                        />
+                      </g>
+                    </g>
+                  </svg>
+                </div>
+              </button>
+              <br />
+              <button
+                className="btn btn-outline- btn-sm"
+                disabled={false}
+                onBlur={[Function]}
+                onFocus={[Function]}
+                onMouseOut={[Function]}
+                onMouseOver={[Function]}
+                type="button"
+              >
+                <div
+                  id="colour"
+                >
+                  <svg
+                    height="30"
+                    styles=" fill:#000000;"
+                    viewBox="0 0 172 172"
+                    width="30"
+                    x="0px"
+                    xmlns="http://www.w3.org/2000/svg"
+                    y="0px"
+                  >
+                    <g
+                      fill="none"
+                      fillRule="nonzero"
+                    >
+                      <path
+                        d="M0,172v-172h172v172z"
+                        fill="none"
+                      />
+                      <g
+                        fill="#fb5945"
+                      >
+                        <path
+                          d="M86,14.33333c-39.58041,0 -71.66667,32.08626 -71.66667,71.66667c0,39.58041 32.08626,71.66667 71.66667,71.66667c39.58041,0 71.66667,-32.08626 71.66667,-71.66667c0,-39.58041 -32.08626,-71.66667 -71.66667,-71.66667z"
+                        />
+                      </g>
+                    </g>
+                  </svg>
+                </div>
+              </button>
+            </div>
             <button
               className="btn btn-outline- btn-sm"
               disabled={false}
@@ -176,30 +278,45 @@ exports[`App Component renders as expected, snapshot comparison 1`] = `
               type="button"
             >
               <div
-                id="colour"
+                id="size"
               >
                 <svg
-                  height="30"
+                  height="15"
                   styles=" fill:#000000;"
                   viewBox="0 0 172 172"
-                  width="30"
+                  width="15"
                   x="0px"
                   xmlns="http://www.w3.org/2000/svg"
                   y="0px"
                 >
                   <g
-                    fill="none"
-                    fillRule="nonzero"
+                    transform="translate(4.988,4.988) scale(0.942,0.942)"
                   >
-                    <path
-                      d="M0,172v-172h172v172z"
-                      fill="none"
-                    />
                     <g
-                      fill="#ffc108"
+                      fill="none"
+                      fillRule="nonzero"
                     >
+                      <g
+                        fill="#ffffff"
+                      >
+                        <path
+                          d="M86,157.66667c-39.41667,0 -71.66667,-32.25 -71.66667,-71.66667c0,-39.41667 32.25,-71.66667 71.66667,-71.66667c39.41667,0 71.66667,32.25 71.66667,71.66667c0,39.41667 -32.25,71.66667 -71.66667,71.66667zM86,28.66667c-31.53333,0 -57.33333,25.8 -57.33333,57.33333c0,31.53333 25.8,57.33333 57.33333,57.33333c31.53333,0 57.33333,-25.8 57.33333,-57.33333c0,-31.53333 -25.8,-57.33333 -57.33333,-57.33333z"
+                        />
+                      </g>
                       <path
-                        d="M86,157.66667c-39.41667,0 -71.66667,-32.25 -71.66667,-71.66667c0,-39.41667 32.25,-71.66667 71.66667,-71.66667c39.41667,0 71.66667,32.25 71.66667,71.66667c0,39.41667 -32.25,71.66667 -71.66667,71.66667z"
+                        d="M0,172v-172h172v172z"
+                        fill="none"
+                      />
+                      <g
+                        fill="#ffffff"
+                      >
+                        <path
+                          d="M86,157.66667c-39.41667,0 -71.66667,-32.25 -71.66667,-71.66667c0,-39.41667 32.25,-71.66667 71.66667,-71.66667c39.41667,0 71.66667,32.25 71.66667,71.66667c0,39.41667 -32.25,71.66667 -71.66667,71.66667zM86,28.66667c-31.53333,0 -57.33333,25.8 -57.33333,57.33333c0,31.53333 25.8,57.33333 57.33333,57.33333c31.53333,0 57.33333,-25.8 57.33333,-57.33333c0,-31.53333 -25.8,-57.33333 -57.33333,-57.33333z"
+                        />
+                      </g>
+                      <path
+                        d=""
+                        fill="none"
                       />
                     </g>
                   </g>
@@ -217,7 +334,7 @@ exports[`App Component renders as expected, snapshot comparison 1`] = `
               type="button"
             >
               <div
-                id="colour"
+                id="size"
               >
                 <svg
                   height="30"
@@ -229,22 +346,33 @@ exports[`App Component renders as expected, snapshot comparison 1`] = `
                   y="0px"
                 >
                   <g
-                    fill="none"
-                    fillRule="nonzero"
-                    font-family="none"
-                    font-size="none"
-                    font-weight="none"
-                    text-anchor="none"
+                    transform="translate(4.988,4.988) scale(0.942,0.942)"
                   >
-                    <path
-                      d="M0,172v-172h172v172z"
-                      fill="none"
-                    />
                     <g
-                      fill="#fb5945"
+                      fill="none"
+                      fillRule="nonzero"
                     >
+                      <g
+                        fill="#ffffff"
+                      >
+                        <path
+                          d="M86,157.66667c-39.41667,0 -71.66667,-32.25 -71.66667,-71.66667c0,-39.41667 32.25,-71.66667 71.66667,-71.66667c39.41667,0 71.66667,32.25 71.66667,71.66667c0,39.41667 -32.25,71.66667 -71.66667,71.66667zM86,28.66667c-31.53333,0 -57.33333,25.8 -57.33333,57.33333c0,31.53333 25.8,57.33333 57.33333,57.33333c31.53333,0 57.33333,-25.8 57.33333,-57.33333c0,-31.53333 -25.8,-57.33333 -57.33333,-57.33333z"
+                        />
+                      </g>
                       <path
-                        d="M86,14.33333c-39.58041,0 -71.66667,32.08626 -71.66667,71.66667c0,39.58041 32.08626,71.66667 71.66667,71.66667c39.58041,0 71.66667,-32.08626 71.66667,-71.66667c0,-39.58041 -32.08626,-71.66667 -71.66667,-71.66667z"
+                        d="M0,172v-172h172v172z"
+                        fill="none"
+                      />
+                      <g
+                        fill="#ffffff"
+                      >
+                        <path
+                          d="M86,157.66667c-39.41667,0 -71.66667,-32.25 -71.66667,-71.66667c0,-39.41667 32.25,-71.66667 71.66667,-71.66667c39.41667,0 71.66667,32.25 71.66667,71.66667c0,39.41667 -32.25,71.66667 -71.66667,71.66667zM86,28.66667c-31.53333,0 -57.33333,25.8 -57.33333,57.33333c0,31.53333 25.8,57.33333 57.33333,57.33333c31.53333,0 57.33333,-25.8 57.33333,-57.33333c0,-31.53333 -25.8,-57.33333 -57.33333,-57.33333z"
+                        />
+                      </g>
+                      <path
+                        d=""
+                        fill="none"
                       />
                     </g>
                   </g>
@@ -252,125 +380,14 @@ exports[`App Component renders as expected, snapshot comparison 1`] = `
               </div>
             </button>
           </div>
-          <button
-            className="btn btn-outline- btn-sm"
-            disabled={false}
-            onBlur={[Function]}
-            onFocus={[Function]}
-            onMouseOut={[Function]}
-            onMouseOver={[Function]}
-            type="button"
-          >
-            <div
-              id="size"
-            >
-              <svg
-                height="15"
-                styles=" fill:#000000;"
-                viewBox="0 0 172 172"
-                width="15"
-                x="0px"
-                xmlns="http://www.w3.org/2000/svg"
-                y="0px"
-              >
-                <g
-                  transform="translate(4.988,4.988) scale(0.942,0.942)"
-                >
-                  <g
-                    fill="none"
-                    fillRule="nonzero"
-                  >
-                    <g
-                      fill="#ffffff"
-                    >
-                      <path
-                        d="M86,157.66667c-39.41667,0 -71.66667,-32.25 -71.66667,-71.66667c0,-39.41667 32.25,-71.66667 71.66667,-71.66667c39.41667,0 71.66667,32.25 71.66667,71.66667c0,39.41667 -32.25,71.66667 -71.66667,71.66667zM86,28.66667c-31.53333,0 -57.33333,25.8 -57.33333,57.33333c0,31.53333 25.8,57.33333 57.33333,57.33333c31.53333,0 57.33333,-25.8 57.33333,-57.33333c0,-31.53333 -25.8,-57.33333 -57.33333,-57.33333z"
-                      />
-                    </g>
-                    <path
-                      d="M0,172v-172h172v172z"
-                      fill="none"
-                    />
-                    <g
-                      fill="#ffffff"
-                    >
-                      <path
-                        d="M86,157.66667c-39.41667,0 -71.66667,-32.25 -71.66667,-71.66667c0,-39.41667 32.25,-71.66667 71.66667,-71.66667c39.41667,0 71.66667,32.25 71.66667,71.66667c0,39.41667 -32.25,71.66667 -71.66667,71.66667zM86,28.66667c-31.53333,0 -57.33333,25.8 -57.33333,57.33333c0,31.53333 25.8,57.33333 57.33333,57.33333c31.53333,0 57.33333,-25.8 57.33333,-57.33333c0,-31.53333 -25.8,-57.33333 -57.33333,-57.33333z"
-                      />
-                    </g>
-                    <path
-                      d=""
-                      fill="none"
-                    />
-                  </g>
-                </g>
-              </svg>
-            </div>
-          </button>
-          <br />
-          <button
-            className="btn btn-outline- btn-sm"
-            disabled={false}
-            onBlur={[Function]}
-            onFocus={[Function]}
-            onMouseOut={[Function]}
-            onMouseOver={[Function]}
-            type="button"
-          >
-            <div
-              id="size"
-            >
-              <svg
-                height="30"
-                styles=" fill:#000000;"
-                viewBox="0 0 172 172"
-                width="30"
-                x="0px"
-                xmlns="http://www.w3.org/2000/svg"
-                y="0px"
-              >
-                <g
-                  transform="translate(4.988,4.988) scale(0.942,0.942)"
-                >
-                  <g
-                    fill="none"
-                    fillRule="nonzero"
-                  >
-                    <g
-                      fill="#ffffff"
-                    >
-                      <path
-                        d="M86,157.66667c-39.41667,0 -71.66667,-32.25 -71.66667,-71.66667c0,-39.41667 32.25,-71.66667 71.66667,-71.66667c39.41667,0 71.66667,32.25 71.66667,71.66667c0,39.41667 -32.25,71.66667 -71.66667,71.66667zM86,28.66667c-31.53333,0 -57.33333,25.8 -57.33333,57.33333c0,31.53333 25.8,57.33333 57.33333,57.33333c31.53333,0 57.33333,-25.8 57.33333,-57.33333c0,-31.53333 -25.8,-57.33333 -57.33333,-57.33333z"
-                      />
-                    </g>
-                    <path
-                      d="M0,172v-172h172v172z"
-                      fill="none"
-                    />
-                    <g
-                      fill="#ffffff"
-                    >
-                      <path
-                        d="M86,157.66667c-39.41667,0 -71.66667,-32.25 -71.66667,-71.66667c0,-39.41667 32.25,-71.66667 71.66667,-71.66667c39.41667,0 71.66667,32.25 71.66667,71.66667c0,39.41667 -32.25,71.66667 -71.66667,71.66667zM86,28.66667c-31.53333,0 -57.33333,25.8 -57.33333,57.33333c0,31.53333 25.8,57.33333 57.33333,57.33333c31.53333,0 57.33333,-25.8 57.33333,-57.33333c0,-31.53333 -25.8,-57.33333 -57.33333,-57.33333z"
-                      />
-                    </g>
-                    <path
-                      d=""
-                      fill="none"
-                    />
-                  </g>
-                </g>
-              </svg>
-            </div>
-          </button>
         </div>
-      </div>
-      <div
-        id="mapinfo"
-      >
         <div
-          id="card"
-        />
+          id="mapinfo"
+        >
+          <div
+            id="card"
+          />
+        </div>
       </div>
     </div>
   </div>

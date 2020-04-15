@@ -12,6 +12,7 @@
     "google-maps-react": "^2.0.2",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.0",
+    "react-bootstrap-table-next": "^4.0.0",
     "react-dom": "^16.13.1",
     "react-google-maps": "^9.4.5",
     "react-scripts": "3.4.1",

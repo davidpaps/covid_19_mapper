@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
 import Header from "./components/navbar/navbar";
-import MapContainer from "./components/map/map";
 import ref_country_codes from "./components/assets/countries-lat-long.json";
 import us_codes from "./components/assets/USlatlong.json";
 
@@ -88,7 +87,7 @@ class App extends Component {
             activeCases: two.active_cases,
             criticalCases: two.serious_critical,
             perOneMillion: two.total_cases_per_1m_population,
-            cfr: cfr.toFixed(2)
+            cfr: parseFloat(cfr.toFixed(2))
           });
         }
       })
@@ -114,7 +113,7 @@ class App extends Component {
             deaths: (obj.deaths).toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ","),
             confirmed: (obj.confirmed).toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ","),
             center: { lat: state.latitude, lng: state.longitude },
-            cfr: (obj.deaths / obj.confirmed * 100).toFixed(2)
+            cfr: parseFloat((obj.deaths / obj.confirmed * 100).toFixed(2))
           });
         }
       })
@@ -150,7 +149,7 @@ class App extends Component {
     const reducer = (accumulator, currentValue) => accumulator + currentValue
     let avCfr = cfrPerCountry.reduce(reducer) / cfrPerCountry.length
 
-    return avCfr.toFixed(2)
+    return parseFloat(avCfr.toFixed(2))
   }
 
   toInteger(totalArray) {
@@ -171,6 +170,7 @@ class App extends Component {
           let intTotalConfirmed = parseInt(two.cases.replace(/,/g, ""))
           let intTotalDeaths = parseInt(two.deaths.replace(/,/g, ""))
           let cfr = intTotalDeaths / intTotalConfirmed * 100
+
           countriesInteger.push({
             country: two.country_name,
             recovered: parseInt(two.total_recovered.replace(/,/g, "")),
@@ -182,7 +182,7 @@ class App extends Component {
             activeCases: parseInt(two.active_cases.replace(/,/g, "")),
             criticalCases: parseInt(two.serious_critical.replace(/,/g, "")),
             perOneMillion: parseInt(two.total_cases_per_1m_population.replace(/,/g, "")),
-            cfr: cfr,
+            cfr: parseFloat(cfr.toFixed(2)),
 
           })
         }
@@ -203,7 +203,7 @@ class App extends Component {
             deaths: (obj.deaths),
             confirmed: (obj.confirmed),
             center: { lat: state.latitude, lng: state.longitude },
-            cfr: (obj.deaths / obj.confirmed * 100).toFixed(2)
+            cfr: parseFloat((obj.deaths / obj.confirmed * 100).toFixed(2))
           });
         }
       })
@@ -212,18 +212,14 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.totalCFR)
     return (
       <div className="App" >
-        <Header total={this.state.total} countries={this.state.countries} globalCFR={this.state.totalCFR} />
-        <div className="Container">
-          <MapContainer
-            countries={this.state.countries}
-            total={this.state.totalInt}
-            globalCFR={this.state.totalCFR}
-            integerCountries={this.state.countriesInteger}
-          />
-        </div>
+        <Header
+          total={this.state.total}
+          totalInt={this.state.totalInt}
+          countries={this.state.countries}
+          globalCFR={this.state.totalCFR}
+          integerCountries={this.state.countriesInteger} />
       </div>
     );
   }

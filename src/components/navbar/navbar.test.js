@@ -9,7 +9,7 @@ describe("Navbar Component", () => {
     shallow(<Header total={[]} />)
   })
   it('render correctly Header component', () => {
-    const TextInputComponent = renderer.create(<Header total={[]} globalCFR={[2.9587486]} />).toJSON();
+    const TextInputComponent = renderer.create(<Header total={[]} globalCFR={[2.9587486]} totalInt={[]} countries={[]} integerCountries={[]} />).toJSON();
     expect(TextInputComponent).toMatchSnapshot();
   });
 })

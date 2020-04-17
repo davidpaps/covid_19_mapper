@@ -43,12 +43,18 @@
 #map {
   position: absolute;
   width: 100%;
-  height: 90%;
+  height: 100%;
   right: 0px;
 }
 
 #bootstrap-table {
   color: white;
+  /* color: black; */
+  font-size: 15px;
+}
+
+#table-heading {
+color: white;
 }
 
 #legend {
@@ -56,7 +62,8 @@
   display: flex;
   flex-direction: column;
   z-index: 1;
-  top: 350px;
+  top: 40%;
+  /* top: 350px; */
   color: white;
   left: 0px;
   width: 5%;
@@ -68,42 +75,55 @@
   flex-direction: row;
   width: 100%;
   z-index: 1;
-  bottom: 5px;
+  bottom: 10px;
+
   left: 0px;
   fill: none;
 }
 
 #info {
   width: 15%;
+  fill: none;
+  font-weight: bold;
 }
 
 #infoCases {
-  color: #18a2b8;
+  color: #18A2B8;
   width: 15%;
+  font-weight: bold;
 }
 
 #infoDeaths {
-  color: rgb(220, 54, 69);
+  color: rgb(220,54,69);
   width: 15%;
+  font-weight: bold;
 }
 
 #infoRecoveries {
-  color: rgb(40, 167, 69);
+  color: rgb(40,167,69);
   width: 15%;
+  font-weight: bold;
+
 }
 
 #infoUS {
   width: 40%;
+
+  font-weight: bold;
+
 }
 
 #infoUSCases {
   width: 40%;
-  color: #18a2b8;
+  color: #18A2B8;
+  font-weight: bold;
 }
 
 #infoUSDeaths {
   width: 40%;
-  color: rgb(220, 54, 69);
+  color: rgb(220,54,69);
+  font-weight: bold;
+
 }
 
 #card {
@@ -111,21 +131,27 @@
 }
 
 #infoYellow {
-  color: #fbbd08;
+  color: #FBBD08;
   width: 15%;
+  font-weight: bold;
+
 }
 
 #infoOrange {
   color: #fb5945;
   width: 15%;
+  font-weight: bold;
 }
 
 #infoUSYellow {
-  color: #fbbd08;
+  color: #FBBD08;
   width: 40%;
+  font-weight: bold;
+
 }
 
 #infoUSOrange {
   color: #fb5945;
   width: 40%;
+  font-weight: bold;
 }

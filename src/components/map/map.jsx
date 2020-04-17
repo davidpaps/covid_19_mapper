@@ -14,7 +14,7 @@ class MapContainer extends Component {
     this.countryElement = React.createRef();
 
     this.state = {
-      center: { lat: 40.4929, lng: 15.5553 },
+      center: { lat: 30.4929, lng: 17.5553 },
       isMarkerShowing: true,
       selectedPlace: {},
       activeMarker: {},
@@ -35,9 +35,10 @@ class MapContainer extends Component {
         options={{
           disableDefaultUI: true,
           styles: styles,
-          minZoom: 2,
+          minZoom: 2.2,
           maxZoom: 10,
           zoomControl: true,
+          zoomControlOptions: { position: 8 }
         }}
         onIdle={this.handleIdle}
       >

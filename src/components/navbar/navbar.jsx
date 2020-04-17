@@ -12,8 +12,9 @@ class Header extends Component {
     super(props);
     this.state = {
       viewMap: true,
-      viewTables: false,
-    };
+      viewTables: false
+    }
+
   }
 
   handleMapClick = () => {
@@ -33,7 +34,7 @@ class Header extends Component {
   render() {
     return (
       <div id="app">
-        <Navbar fixed="top" className="navbar-dark bs-navbar-collapse">
+        <Navbar fixed="top" bg={this.state.viewMap ? "" : "dark"} className="navbar-dark bs-navbar-collapse" >
           <Nav>
             <DropdownButton
               variant={"outline-light"}
@@ -58,12 +59,10 @@ class Header extends Component {
                         width="22"
                         height="22"
                         className="d-inline-block align-top"
-                      ></img>
-                    </span>
+                      ></img></span>
                     Covid-19
-                  </span>
-                )
-              }
+                </span>
+                )}
               id="last_updated"
             >
               <Dropdown.Item onClick={this.handleMapClick}>
@@ -261,5 +260,6 @@ class Header extends Component {
     );
   }
 }
+
 
 export default Header;

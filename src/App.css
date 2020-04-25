@@ -1,7 +1,6 @@
 .App {
   text-align: center;
   color: #3e444a;
-  /* background-color: rgb(81, 82, 82); */
 }
 
 .Container {
@@ -15,16 +14,30 @@
   width: 80%;
 }
 
-#img {
-  margin: 2px;
+#graph {
+  position: absolute;
+  top: 10%;
 }
 
-#table {
+#legend-title {
   position: absolute;
-  top: 70px;
-  /* border: solid;
-  border-color: white;
-  border-width: medium; */
+  right: 1%;
+  z-index: 1;
+  top: 17%;
+  color: white;
+  font-weight: bold;
+}
+
+#l {
+  margin-bottom: 50px;
+}
+
+#app {
+  background-color: #343a40;
+}
+
+#img {
+  margin: 2px;
 }
 
 #drop-down-window {
@@ -40,21 +53,37 @@
   margin-right: 5px;
 }
 
+#bootstrap-table {
+  color: white;
+  font-size: 15px;
+}
+
+#table {
+  position: absolute;
+  top: 70px;
+}
+
+#table-heading {
+  color: white;
+}
+
+h4 {
+  color: white;
+}
+
+#b {
+  margin-bottom: 100px;
+}
+
+#graph {
+  width: 100%;
+}
+
 #map {
   position: absolute;
   width: 100%;
   height: 100%;
   right: 0px;
-}
-
-#bootstrap-table {
-  color: white;
-  /* color: black; */
-  font-size: 15px;
-}
-
-#table-heading {
-color: white;
 }
 
 #legend {
@@ -63,7 +92,6 @@ color: white;
   flex-direction: column;
   z-index: 1;
   top: 40%;
-  /* top: 350px; */
   color: white;
   left: 0px;
   width: 5%;
@@ -75,55 +103,74 @@ color: white;
   flex-direction: row;
   width: 100%;
   z-index: 1;
-  bottom: 10px;
+  bottom: 25px;
 
   left: 0px;
   fill: none;
+}
+
+#infoCases {
+  color: #18a2b8;
+  width: 15%;
+  font-weight: bold;
 }
 
 #info {
   width: 15%;
   fill: none;
   font-weight: bold;
+  /* top: 10%; */
 }
 
-#infoCases {
-  color: #18A2B8;
+#infoCountryName {
+  color: #18a2b8;
   width: 15%;
   font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 2%;
+  position: absolute;
 }
 
 #infoDeaths {
-  color: rgb(220,54,69);
+  color: rgb(220, 54, 69);
   width: 15%;
   font-weight: bold;
 }
 
 #infoRecoveries {
-  color: rgb(40,167,69);
+  color: rgb(40, 167, 69);
   width: 15%;
   font-weight: bold;
-
 }
 
 #infoUS {
-  width: 40%;
-
+  width: 15%;
   font-weight: bold;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 5%;
+  position: absolute;
 }
 
 #infoUSCases {
-  width: 40%;
-  color: #18A2B8;
+  color: #18a2b8;
+  width: 30%;
   font-weight: bold;
 }
 
 #infoUSDeaths {
   width: 40%;
-  color: rgb(220,54,69);
+  color: rgb(220, 54, 69);
   font-weight: bold;
-
+}
+#info-boxes {
+  display: flex;
+  width: 80%;
+  position: absolute;
+  right: 0px;
 }
 
 #card {
@@ -131,10 +178,9 @@ color: white;
 }
 
 #infoYellow {
-  color: #FBBD08;
+  color: #fbbd08;
   width: 15%;
   font-weight: bold;
-
 }
 
 #infoOrange {
@@ -144,10 +190,9 @@ color: white;
 }
 
 #infoUSYellow {
-  color: #FBBD08;
+  color: #fbbd08;
   width: 40%;
   font-weight: bold;
-
 }
 
 #infoUSOrange {
@@ -155,3 +200,37 @@ color: white;
   width: 40%;
   font-weight: bold;
 }
+
+#search {
+  top: 20%;
+  position: absolute;
+  z-index: 1;
+  position: relative;
+  width: 100%;
+  margin: 5px;
+  justify-content: center;
+}
+
+#search-heading {
+  color: white;
+  margin: 10px;
+}
+
+#search-form input[type="text"] {
+  width: 250px;
+  box-sizing: border-box;
+  border: 2px solid #646d79;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: rgb(215, 213, 213);
+  background-image: url("https://cdn3.iconfinder.com/data/icons/science-116/64/virus-lab-scientist-biology-cell-medical-512.png?v=2");
+  background-size: 25px 25px;
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+  transition: width 0.4s ease-in-out;
+}
+
+/* #search-form input[type=text]:focus {
+  width: 100%;
+ */

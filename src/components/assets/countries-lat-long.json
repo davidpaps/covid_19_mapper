@@ -1121,7 +1121,7 @@
       "longitude": -102
     },
     {
-      "country": "Micronesia, Federated States of",
+      "country": "Micronesia",
       "alpha2": "FM",
       "alpha3": "FSM",
       "numeric": 583,
@@ -1817,7 +1817,7 @@
       "longitude": 54
     },
     {
-      "country": "UK",
+      "country": "United Kingdom",
       "alpha2": "GB",
       "alpha3": "GBR",
       "numeric": 826,

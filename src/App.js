@@ -12,7 +12,7 @@ class App extends Component {
     total: [],
     totalInt: [],
     totalCFR: null,
-    countriesInteger: []
+    countriesInteger: [],
   };
 
   componentDidMount() {
@@ -35,6 +35,7 @@ class App extends Component {
           headers: {
             "x-rapidapi-host": "coronavirus-monitor.p.rapidapi.com",
             "x-rapidapi-key":
+              // "2bb49386fdmsh5daac6ca9add22ep1484a8jsn9816903163ef"
               "a04279196bmsh77bb3ff9e6f2e74p1f4d03jsn5bc0fbe15879",
           },
         }
@@ -59,23 +60,25 @@ class App extends Component {
           total: this.updateTotal(res1),
           totalInt: this.toInteger(res1),
           totalCFR: this.makeGlobalCFR(res2.countries_stat, res3.list),
-          countriesInteger: this.makeCountriesInteger(res2.countries_stat, res3.list)
+          countriesInteger: this.makeCountriesInteger(
+            res2.countries_stat,
+            res3.list
+          ),
         });
       });
   }
 
   createCountry(country, states) {
     const countries = [];
-    const usa = [];
     ref_country_codes.ref_country_codes.forEach((one) =>
       country.forEach((two) => {
-        if (two.country_name === "US") {
-          usa.push(two);
+        if (two.country_name === "UK") {
+          two.country_name = "United Kingdom";
         }
         if (one.country === two.country_name) {
-          let intTotalConfirmed = parseInt(two.cases.replace(/,/g, ""))
-          let intTotalDeaths = parseInt(two.deaths.replace(/,/g, ""))
-          let cfr = intTotalDeaths / intTotalConfirmed * 100
+          let intTotalConfirmed = parseInt(two.cases.replace(/,/g, ""));
+          let intTotalDeaths = parseInt(two.deaths.replace(/,/g, ""));
+          let cfr = (intTotalDeaths / intTotalConfirmed) * 100;
           countries.push({
             country: two.country_name,
             recovered: two.total_recovered,
@@ -87,7 +90,7 @@ class App extends Component {
             activeCases: two.active_cases,
             criticalCases: two.serious_critical,
             perOneMillion: two.total_cases_per_1m_population,
-            cfr: parseFloat(cfr.toFixed(2))
+            cfr: parseFloat(cfr.toFixed(2)),
           });
         }
       })
@@ -101,7 +104,6 @@ class App extends Component {
   updateUS(states, countries) {
     us_codes.us_codes.forEach((state) =>
       states.forEach((obj) => {
-
         if (obj.state === "Georgia") {
           obj.state = "Georgia, US";
         }
@@ -110,10 +112,10 @@ class App extends Component {
             us: true,
             country: state.state,
             recovered: obj.recovered,
-            deaths: (obj.deaths).toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ","),
-            confirmed: (obj.confirmed).toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ","),
+            deaths: this.commaNumberString(obj.deaths.toString()),
+            confirmed: this.commaNumberString(obj.confirmed.toString()),
             center: { lat: state.latitude, lng: state.longitude },
-            cfr: parseFloat((obj.deaths / obj.confirmed * 100).toFixed(2))
+            cfr: parseFloat(((obj.deaths / obj.confirmed) * 100).toFixed(2)),
           });
         }
       })
@@ -121,35 +123,31 @@ class App extends Component {
     return countries;
   }
 
-
   updateTotal(totalArray) {
     let total = this.toInteger(totalArray);
     var activeCases = total[0] - total[1] - total[2];
 
-    totalArray["active_cases"] = activeCases
-      .toString()
-      .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+    totalArray["active_cases"] = this.commaNumberString(activeCases.toString())
     return totalArray;
   }
 
   makeGlobalCFR(countries, states) {
-    let cfrPerCountry = []
-    countries.forEach(country => {
+    let cfrPerCountry = [];
+    countries.forEach((country) => {
       cfrPerCountry.push(
-        parseInt(country.deaths.replace(/,/g, "")) / parseInt(country.cases.replace(/,/g, "")) * 100
+        (parseInt(country.deaths.replace(/,/g, "")) /
+          parseInt(country.cases.replace(/,/g, ""))) *
+          100
+      );
+    });
 
-      )
-    })
+    states.forEach((state) => {
+      cfrPerCountry.push((state.deaths / state.confirmed) * 100);
+    });
+    const reducer = (accumulator, currentValue) => accumulator + currentValue;
+    let avCfr = cfrPerCountry.reduce(reducer) / cfrPerCountry.length;
 
-    states.forEach(state => {
-      cfrPerCountry.push(
-        (state.deaths / state.confirmed * 100)
-      )
-    })
-    const reducer = (accumulator, currentValue) => accumulator + currentValue
-    let avCfr = cfrPerCountry.reduce(reducer) / cfrPerCountry.length
-
-    return parseFloat(avCfr.toFixed(2))
+    return parseFloat(avCfr.toFixed(2));
   }
 
   toInteger(totalArray) {
@@ -167,9 +165,9 @@ class App extends Component {
     ref_country_codes.ref_country_codes.forEach((one) => {
       countries.forEach((two) => {
         if (one.country === two.country_name) {
-          let intTotalConfirmed = parseInt(two.cases.replace(/,/g, ""))
-          let intTotalDeaths = parseInt(two.deaths.replace(/,/g, ""))
-          let cfr = intTotalDeaths / intTotalConfirmed * 100
+          let intTotalConfirmed = parseInt(two.cases.replace(/,/g, ""));
+          let intTotalDeaths = parseInt(two.deaths.replace(/,/g, ""));
+          let cfr = (intTotalDeaths / intTotalConfirmed) * 100;
 
           countriesInteger.push({
             country: two.country_name,
@@ -181,14 +179,14 @@ class App extends Component {
             newDeaths: parseInt(two.new_deaths.replace(/,/g, "")),
             activeCases: parseInt(two.active_cases.replace(/,/g, "")),
             criticalCases: parseInt(two.serious_critical.replace(/,/g, "")),
-            perOneMillion: parseInt(two.total_cases_per_1m_population.replace(/,/g, "")),
+            perOneMillion: parseInt(
+              two.total_cases_per_1m_population.replace(/,/g, "")
+            ),
             cfr: parseFloat(cfr.toFixed(2)),
-
-          })
+          });
         }
-      })
-    })
-
+      });
+    });
 
     us_codes.us_codes.forEach((state) => {
       states.forEach((obj) => {
@@ -200,26 +198,31 @@ class App extends Component {
             us: true,
             country: state.state,
             recovered: obj.recovered,
-            deaths: (obj.deaths),
-            confirmed: (obj.confirmed),
+            deaths: obj.deaths,
+            confirmed: obj.confirmed,
             center: { lat: state.latitude, lng: state.longitude },
-            cfr: parseFloat((obj.deaths / obj.confirmed * 100).toFixed(2))
+            cfr: parseFloat(((obj.deaths / obj.confirmed) * 100).toFixed(2)),
           });
         }
-      })
+      });
     });
     return countriesInteger;
   }
 
+  commaNumberString(string) {
+    return string.replace(/\d{1,3}(?=(\d{3})+(?!\d))/g , "$&,");
+  }
+
   render() {
     return (
-      <div className="App" >
+      <div className="App">
         <Header
           total={this.state.total}
           totalInt={this.state.totalInt}
           countries={this.state.countries}
           globalCFR={this.state.totalCFR}
-          integerCountries={this.state.countriesInteger} />
+          integerCountries={this.state.countriesInteger}
+        />
       </div>
     );
   }

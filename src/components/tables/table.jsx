@@ -156,7 +156,7 @@ class TableContainer extends Component {
 
     return (
       <div>
-        <h1 id="table-heading">Global Data</h1>
+        <h4 id="table-heading">Global Data</h4>
         <ToolkitProvider
           keyField="id"
           data={this.props.countries}
@@ -166,8 +166,7 @@ class TableContainer extends Component {
           {
             props => (
               <div>
-                {/* <h3>Search Country or State</h3> */}
-                <SearchBar {...props.searchProps} placeholder="Search by Country or US State" style={{ width: "250px" }} className="searchbar" />
+                <SearchBar {...props.searchProps} placeholder="Search..." style={{ width: "250px", backgroundColor: "215, 213, 213" }} className="searchbar" />
                 <hr />
                 <BootstrapTable
                   {...props.baseProps}
